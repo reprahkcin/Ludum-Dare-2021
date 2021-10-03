@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class PortaPotty : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _door;
-
-    public float doorDelay = 1f;
+    public Animator anim;
 
     public void OpenDoor()
     {
-        //rotate the door 120 degrees
-        _door.transform.Rotate(new Vector3(0, 0, -120));
-        StartCoroutine(CloseDoor(doorDelay));
-    }
+        anim.SetTrigger("OpenDoor_Trigger");
 
-    IEnumerator CloseDoor(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        //rotate the door 120 degrees
-        _door.transform.Rotate(new Vector3(0, 0, 120));
     }
 
 }
+
