@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FerrisWheel : MonoBehaviour
+public class TicketBooth : MonoBehaviour
 {
     [SerializeField]
     private Transform _queueStart;

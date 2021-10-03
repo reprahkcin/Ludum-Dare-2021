@@ -6,25 +6,54 @@ public class Booth : MonoBehaviour
 {
     [SerializeField]
     private Transform _queueStart;
+
     [SerializeField]
     private Transform _exit;
+
     [SerializeField]
     private Transform _repairSpot;
 
-    public float health = 100;
+    [SerializeField]
+    private Transform[] intermediatePositions;
 
-    public Transform GetQueueStart()
+    public GameObject repairSign;
+
+    public bool underRepair = false;
+
+    public float health = 100f;
+
+    void Start()
     {
-        return _queueStart;
+
+        repairSign.SetActive(false);
     }
 
-    public Transform GetRepairSpot()
+    void Update()
     {
-        return _repairSpot;
+        if (underRepair)
+        {
+            //Turn on the sign
+            repairSign.SetActive(true);
+        }
+        else
+        {
+            repairSign.SetActive(false);
+        }
     }
 
-    public Transform GetExit()
+    public void Break()
     {
-        return _exit;
+        underRepair = true;
     }
+
+    public void Fix()
+    {
+        underRepair = false;
+    }
+
+    public Transform Queue { get { return _queueStart; } }
+
+    public Transform Exit { get { return _exit; } }
+
+    public Transform Repair { get { return _repairSpot; } }
 }
