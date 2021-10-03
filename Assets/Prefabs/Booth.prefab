@@ -140,6 +140,7 @@ MonoBehaviour:
   _queueStart: {fileID: 2060788425076843299}
   _exit: {fileID: 8218862102981353168}
   _repairSpot: {fileID: 5468538872336642746}
+  health: 100
 --- !u!1001 &4672725362649065959
 PrefabInstance:
   m_ObjectHideFlags: 0
