@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8675151154947859172}
   - component: {fileID: 1000050618}
+  - component: {fileID: 5693510892534304037}
   m_Layer: 0
   m_Name: TicketBooth
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   repairSign: {fileID: 1961679150607475}
   underRepair: 0
   health: 100
+--- !u!65 &5693510892534304037
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675151154947859173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.0811896, z: 1}
+  m_Center: {x: 0, y: 1.5054824, z: 0}
 --- !u!1001 &7488928022209205543
 PrefabInstance:
   m_ObjectHideFlags: 0
