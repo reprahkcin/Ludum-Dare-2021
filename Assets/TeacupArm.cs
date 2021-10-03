@@ -19,7 +19,27 @@ public class TeacupArm : MonoBehaviour
     [SerializeField]
     private GameObject _littleArm4;
 
+    [SerializeField]
+    private GameObject[] _cars;
 
+    private float[] speeds;
+
+    private void Start()
+    {
+        float spinMin = _teaCupRide.GetComponent<TeacupRide>().spinMin;
+        float spinMax = _teaCupRide.GetComponent<TeacupRide>().spinMax;
+
+
+        speeds = new float[_cars.Length];
+        //for each car in _cars
+        //generate a random value between spinMin and spinMax
+
+        for (int i = 0; i < _cars.Length; i++)
+        {
+            float f = Random.Range(spinMin, spinMax);
+            speeds[i] = f;
+        }
+    }
 
     private void Update()
     {
@@ -35,6 +55,12 @@ public class TeacupArm : MonoBehaviour
             _littleArm2.transform.Rotate(0, 0, -speed * Time.deltaTime);
             _littleArm3.transform.Rotate(0, 0, -speed * Time.deltaTime);
             _littleArm4.transform.Rotate(0, 0, -speed * Time.deltaTime);
+
+            for (int i = 0; i < _cars.Length; i++)
+            {
+                _cars[i].transform.Rotate(0, 0, speeds[i] * Time.deltaTime);
+            }
+
 
 
         }

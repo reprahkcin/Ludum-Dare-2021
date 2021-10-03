@@ -18,6 +18,10 @@ public class TeacupRide : MonoBehaviour
 
     public float speed = 2.0f;
 
+    public float spinMin = -20.0f;
+
+    public float spinMax = 20.0f;
+
 
 }
 
