@@ -43,12 +43,12 @@ public class FerrisWheel : MonoBehaviour
         if (isActive)
         {
             //Turn the wheel on the z-axis at speed
-            transform.Rotate(Vector3.forward, Time.deltaTime * speed);
+            wheel.transform.Rotate(Vector3.forward, Time.deltaTime * speed);
 
             //loop through cars and rotate each car opposite the wheel
             for (int i = 0; i < cars.Length; i++)
             {
-                transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
+                cars[i].transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
             }
 
         }
