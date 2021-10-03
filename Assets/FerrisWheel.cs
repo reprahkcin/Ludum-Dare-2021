@@ -39,6 +39,22 @@ public class FerrisWheel : MonoBehaviour
         {
             repairSign.SetActive(false);
         }
+
+        if (isActive)
+        {
+            //Turn the wheel on the z-axis at speed
+            transform.Rotate(Vector3.forward, Time.deltaTime * speed);
+
+            //loop through cars and rotate each car opposite the wheel
+            for (int i = 0; i < cars.Length; i++)
+            {
+                transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
+            }
+
+        }
+
+
+
     }
 
     public void Break()
@@ -56,4 +72,15 @@ public class FerrisWheel : MonoBehaviour
     public Transform Exit { get { return _exit; } }
 
     public Transform Repair { get { return _repairSpot; } }
+
+    // Ferris Wheel Movement
+    public GameObject[] cars;
+
+    public GameObject wheel;
+
+    public float speed;
+
+    public bool isActive = false;
+
+
 }
