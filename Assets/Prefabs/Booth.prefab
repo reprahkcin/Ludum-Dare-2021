@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5339454985762490625}
   m_Layer: 0
   m_Name: Booth
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,13 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5b661fc62a88c4cae93b8f7d6c2ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 20
+  rideLength: 5
+  maxRiders: 1
+  incomePerRide: 5
+  degradeAmount: 1
   _queueStart: {fileID: 2060788425076843299}
   _exit: {fileID: 8218862102981353168}
   _repairSpot: {fileID: 5468538872336642746}
   intermediatePositions: []
   repairSign: {fileID: 5508518270048521552}
-  underRepair: 0
-  health: 100
 --- !u!1001 &3142048363276219396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,7 +287,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 11cc97eda27be684da3745cc5951bb73, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 13439ca48a5fbda4c90f1e7054b57d8a, type: 2}
+      objectReference: {fileID: 2100000, guid: 4739641a67952404080e4561b129be38, type: 2}
     - target: {fileID: 919132149155446097, guid: 11cc97eda27be684da3745cc5951bb73, type: 3}
       propertyPath: m_Name
       value: Booth_Geo

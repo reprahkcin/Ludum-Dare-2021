@@ -41,21 +41,18 @@ public class Patron : MonoBehaviour
 
         animator.SetBool("isMoving", true);
 
-        float step =  speed * Time.deltaTime; // calculate distance to move
+        float step =  speed * Time.deltaTime;
         transform.LookAt(target.position);
+        
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         
-        // Check if the position of the cube and sphere are approximately equal.
         if (Vector3.Distance(transform.position, target.position) < 0.001f)
         {
             Building building = target.gameObject.GetComponentInParent<Building>();
             
             if(building) {
-                //Patron self = gameObject.GetComponent<Patron>();
                 building.AddToQueue( this );
                 target = null;
-                // stop walking
-                //
             } else {
 
                 PatronSpawn spawn = target.gameObject.GetComponent<PatronSpawn>();
