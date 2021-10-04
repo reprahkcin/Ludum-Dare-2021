@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8697001586452595307}
+  - component: {fileID: 108810816}
   m_Layer: 0
   m_Name: Bus
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +32,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108810816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862454501044615298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a86f55180634810a42fd44c17ab43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patron: {fileID: 77554807718781366, guid: 14030d40123424e669bd73fa1c903108, type: 3}
+  delayBetweenSpawns: 30
+  delayBetweenPatrons: 1
+  startAmount: 10
 --- !u!1001 &8094175772902839210
 PrefabInstance:
   m_ObjectHideFlags: 0
