@@ -87,13 +87,13 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator second_mission(float time)
     {
-        SpeakToYou(0, secondMissionText[0]);
+        SpeakToYou(1, secondMissionText[0]);
         yield return new WaitForSeconds(time);
         ClearCards();
         YouSpeak(secondMissionText[1]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        SpeakToYou(0, secondMissionText[2]);
+        SpeakToYou(1, secondMissionText[2]);
         yield return new WaitForSeconds(time);
         ClearCards();
         YouSpeak(secondMissionText[3]);
@@ -115,13 +115,13 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator third_mission(float time)
     {
-        SpeakToYou(0, thirdMissionText[0]);
+        SpeakToYou(2, thirdMissionText[0]);
         yield return new WaitForSeconds(time);
         ClearCards();
         YouSpeak(thirdMissionText[1]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        SpeakToYou(0, thirdMissionText[2]);
+        SpeakToYou(2, thirdMissionText[2]);
         yield return new WaitForSeconds(time);
         ClearCards();
         YouSpeak(thirdMissionText[3]);
