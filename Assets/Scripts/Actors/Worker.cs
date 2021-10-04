@@ -15,7 +15,7 @@ public class Worker : MonoBehaviour
 
     void OnMouseDown() {
         Debug.Log(gameObject.name + " clicked");
-        Director.instance.guiManager.SetWorker(this.gameObject);
+        GUIManager.instance.SetActiveWorker(this.gameObject);
     }
 
 

@@ -2,84 +2,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GUIManager : MonoBehaviour
+public class GUIManager : MonoSingleton<GUIManager>
 {
+    private GameObject _activeWorker;
 
-    private GameObject worker;
-    public GameObject worker1;
-    public GameObject worker2;
-    public GameObject worker3;
-    public GameObject worker4;
-    public GameObject worker5;
+    public GameObject[] workers;
 
-    public int actionType = 0;
     public Transform actionTarget;
 
     public void SetActionTarget(Transform target) {
-        if(worker && actionType > 0 ) {
+        if(_activeWorker) {
             actionTarget = target;
-            worker.GetComponent<Worker>().SetTarget(target);
+            _activeWorker.GetComponent<Worker>().SetTarget(target);
         }
     }
     void clearAction() {
         actionTarget = null;
-        actionType = 0;
 
     }
 
-    public void SetWorker(GameObject _worker) {
-        worker = _worker;
+    public void SetActiveWorker(GameObject worker) {
+        _activeWorker = worker;
         clearAction();
     }
     void OnGUI() {
 
         IncomeUI();
+        PointsUI();
         WorkerUI();
         ActiveWorkerUI();
-    }
-
-    void SetAction(int i) {
-        actionType = i;
+        AlertsUI();
     }
 
     void IncomeUI() {
         GUI.BeginGroup(new Rect(0, 0, 260, 80));
-        GUI.Box(new Rect(10, 20, 80, 30), "$" + Director.instance.incomeManager.income);
+        GUI.Box(new Rect(10, 20, 80, 30), "$" + StateManager.instance.GetIncome());
+        GUI.EndGroup();
+    }
+
+    void PointsUI() {
+        GUI.BeginGroup(new Rect(300, 0, 260, 80));
+        GUI.Box(new Rect(10, 20, 80, 30), StateManager.instance.GetPoints() + " Points");
         GUI.EndGroup();
     }
 
     void WorkerUI() {
         GUI.BeginGroup(new Rect(0, Screen.height - 80, 260, 80));
         GUI.Box(new Rect(0, 0, 260, 80), "Select Worker");
-        if (GUI.Button(new Rect(10, 30, 40, 40), "1") || Input.GetKeyDown("1"))
-        {
-            SetWorker(worker1);
-        }
-        if (GUI.Button(new Rect(60, 30, 40, 40), "2") || Input.GetKeyDown("2"))
-        {
-            SetWorker(worker2);
-        }
-        if (GUI.Button(new Rect(110, 30, 40, 40), "3") || Input.GetKeyDown("3"))
-        {
-            SetWorker(worker3);
-        }
-        if (GUI.Button(new Rect(160, 30, 40, 40), "4") || Input.GetKeyDown("4"))
-        {
-            SetWorker(worker4);
-        }
-        if (GUI.Button(new Rect(210, 30, 40, 40), "5") || Input.GetKeyDown("5"))
-        {
-            SetWorker(worker5);
+        int x = 0;
+        foreach(GameObject worker in workers) {
+            if (GUI.Button(new Rect(10 + (x * 50), 30, 40, 40), x.ToString()) || Input.GetKeyDown(x.ToString()))
+            {
+                SetActiveWorker(worker);
+            }
+            x += 1;
         }
         GUI.EndGroup();
     }
 
     void ActiveWorkerUI() {
-        if(worker) {
+        if(_activeWorker) {
 
             string targetLabel = "";
             string actionLabel = "";
-            Worker workerScript = worker.GetComponent<Worker>();
+            Worker workerScript = _activeWorker.GetComponent<Worker>();
 
             if(workerScript.target) {
                 targetLabel = workerScript.target.gameObject.name;
@@ -95,23 +81,22 @@ public class GUIManager : MonoBehaviour
                 actionLabel = "idle.";
             }
             GUI.BeginGroup(new Rect(Screen.width - 200, Screen.height - 200, 200, 200));
-            GUI.Box(new Rect(0, 0, 200, 200), worker.name + " Actions");
-            GUI.Label(new Rect(10, 30, 200, 200), worker.name + " is " + actionLabel);
-            if (GUI.Button(new Rect(10, 60, 40, 40), "Fix") || Input.GetKeyDown("f"))
-            {
-                Debug.Log("Fixing!");
-                SetAction(1);
-            }
+            GUI.Box(new Rect(0, 0, 200, 200), _activeWorker.name + " Actions");
+            GUI.Label(new Rect(10, 30, 200, 200), _activeWorker.name + " is " + actionLabel);
+            GUI.Label(new Rect(10, 60, 200, 200), "Speed: " + workerScript.speed);
+            GUI.Label(new Rect(10, 90, 200, 200), "Repair: " + workerScript.repairPerSecond);
             GUI.EndGroup();
         }
     }
 
     void AlertsUI() {
         GUI.BeginGroup(new Rect(Screen.width - 200, 0, 200, 200));
-        if (GUI.Button(new Rect(10, 60, 40, 40), "Fix") || Input.GetKeyDown("f"))
-        {
-            Debug.Log("Fixing!");
-            SetAction(1);
+
+        int x = 0; 
+
+        foreach(string alert in AlertManager.instance.GetAlerts()) {
+            GUI.Label(new Rect(10, x * 30, 200, 30), alert);
+            x += 1;
         }
         GUI.EndGroup();
     }

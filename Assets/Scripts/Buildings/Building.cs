@@ -29,7 +29,7 @@ public class Building : MonoBehaviour
 
     void OnMouseDown() {
         Debug.Log(gameObject.name + " clicked");
-        Director.instance.guiManager.SetActionTarget(transform);
+        GUIManager.instance.SetActionTarget(transform);
     }
 
     public bool NeedsRepair() {
@@ -55,7 +55,7 @@ public class Building : MonoBehaviour
     void Start()
     {
         currentHealth = startingHealth;
-        textName.text = gameObject.name;
+        //textName.text = gameObject.name;
 
         
         StartCoroutine(DegradeLoop());
@@ -66,9 +66,9 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textHealth.text = "Health: " + currentHealth.ToString() + " / " + startingHealth.ToString();
-        textRiders.text = "Riders: " + riders.Count + " / " + maxRiders.ToString();
-        textQueue.text = "Queue: " + queue.Count.ToString();
+        //textHealth.text = "Health: " + currentHealth.ToString() + " / " + startingHealth.ToString();
+        //textRiders.text = "Riders: " + riders.Count + " / " + maxRiders.ToString();
+        //textQueue.text = "Queue: " + queue.Count.ToString();
     }
 
     IEnumerator DegradeLoop() {
@@ -113,7 +113,7 @@ public class Building : MonoBehaviour
             }
 
             if(incomePerRide > 0) {
-                Director.instance.incomeManager.AddIncome(incomePerRide);
+                StateManager.instance.AddIncome(incomePerRide);
             }
 
             Patron patron = queue[0];

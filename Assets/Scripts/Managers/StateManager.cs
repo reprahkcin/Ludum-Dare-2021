@@ -15,11 +15,11 @@ public class StateManager : MonoSingleton<StateManager>
     _points += amount;
   }
 
-  static public int GetIncome() {
-    return _income;
+  public int GetIncome() {
+    return this._income;
   }
 
-  static public int GetPoints() {
+  public int GetPoints() {
     return _points;
   }
 }
