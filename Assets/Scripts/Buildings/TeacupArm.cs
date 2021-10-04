@@ -60,11 +60,7 @@ public class TeacupArm : MonoBehaviour
             {
                 _cars[i].transform.Rotate(0, 0, speeds[i] * Time.deltaTime);
             }
-
-
-
         }
-
     }
 }
 
