@@ -125,8 +125,7 @@ public class Building : MonoBehaviour
 
     IEnumerator LoadRiders() { 
 
-            //while(riders.Count < intermediatePositions.Length) {
-        while(queue.Count > 0) {
+        while(queue.Count > 0 && (riders.Count < intermediatePositions.Length)) {
 
             if(incomePerRide > 0) {
                 StateManager.instance.AddIncome(incomePerRide);
@@ -147,6 +146,7 @@ public class Building : MonoBehaviour
 
     void shiftRider( Patron patron, int openSeat ) {
         // todo - move to specific transforms.
+        Debug.Log("Shifting rider to seat " + openSeat);
         patron.transform.SetParent(intermediatePositions[openSeat]);
         patron.transform.position = intermediatePositions[openSeat].position; 
         patron.transform.localPosition = Vector3.zero;

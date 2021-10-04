@@ -2,45 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FerrisWheel : MonoBehaviour
+public class FerrisWheel : Building
 {
-    [SerializeField]
-    private Transform _queueStart;
 
-    [SerializeField]
-    private Transform _exit;
+    // Ferris Wheel Movement
+    public GameObject[] cars;
 
-    [SerializeField]
-    private Transform _repairSpot;
+    public GameObject wheel;
 
-    [SerializeField]
-    private Transform[] intermediatePositions;
+    public float speed;
 
-    public GameObject repairSign;
-
-    public bool underRepair = false;
-
-    public float health = 100f;
-
-    void Start()
-    {
-
-        repairSign.SetActive(false);
-    }
 
     void Update()
     {
-        if (underRepair)
-        {
-            //Turn on the sign
-            repairSign.SetActive(true);
-        }
-        else
-        {
-            repairSign.SetActive(false);
-        }
 
-        if (isActive)
+        if (readyToBegin)
         {
             //Turn the wheel on the z-axis at speed
             wheel.transform.Rotate(Vector3.forward, Time.deltaTime * speed);
@@ -57,30 +33,6 @@ public class FerrisWheel : MonoBehaviour
 
     }
 
-    public void Break()
-    {
-        underRepair = true;
-    }
-
-    public void Fix()
-    {
-        underRepair = false;
-    }
-
-    public Transform Queue { get { return _queueStart; } }
-
-    public Transform Exit { get { return _exit; } }
-
-    public Transform Repair { get { return _repairSpot; } }
-
-    // Ferris Wheel Movement
-    public GameObject[] cars;
-
-    public GameObject wheel;
-
-    public float speed;
-
-    public bool isActive = false;
 
 
 }
