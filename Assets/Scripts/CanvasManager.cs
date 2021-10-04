@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -19,9 +20,15 @@ public class CanvasManager : MonoBehaviour
     // Keep track of all canvases
     public Canvas[] canvases;
 
-
-
     public GameObject introCanvas;
+
+    // HUD
+
+    public TextMeshProUGUI parkSentimentText;
+
+    public TextMeshProUGUI incomeText;
+
+    public TextMeshProUGUI feedbackStatusText;
 
 
     // ------------------------------------------------------------
@@ -94,6 +101,16 @@ public class CanvasManager : MonoBehaviour
         currentCanvas.gameObject.SetActive(true);
     }
 
+    public void WinGame()
+    {
+        SetCanvas(3);
+    }
+
+    public void LoseGame()
+    {
+        SetCanvas(4);
+    }
+
     // ------------------------------------------------------------
     // Unity Methods
     // ------------------------------------------------------------
@@ -118,8 +135,8 @@ public class CanvasManager : MonoBehaviour
         // Turn off the intro canvas
         introCanvas.SetActive(false);
 
-        // TODO: Turn on theme music
-        //AudioManager.instance.PlayBackgroundMusic();
+        // Turn on Intro music
+        //AudioManager.instance.PlayIntroMusic();
 
         // Deactivate all canvases
         foreach (Canvas canvas in canvases)
@@ -135,4 +152,32 @@ public class CanvasManager : MonoBehaviour
 
     }
 
+
+    public void UpdateParkSentiment(float parkSentiment)
+    {
+        parkSentimentText.text = Convert.ToString(parkSentiment) + "%";
+    }
+
+    public void UpdateIncome(float income)
+    {
+        incomeText.text = "$" + Convert.ToString(Math.Round(income, 2));
+    }
+
+    public void PostFeedback(string message, float fadeTime = 30.0f)
+    {
+        feedbackStatusText.text = message;
+        StartCoroutine(FeedbackDelay(fadeTime));
+    }
+
+    IEnumerator FeedbackDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        feedbackStatusText.text = "";
+    }
+
+    public void DisplayStatus(string message)
+    {
+        feedbackStatusText.text = message;
+    }
 }
+
