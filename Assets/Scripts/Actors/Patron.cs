@@ -6,8 +6,8 @@ public class Patron : MonoBehaviour
 {
     private int satisfaction = 0;
     private List<GameObject> destinations = new List<GameObject>();
-    public Transform target;
-    public float speed;
+    private Transform target;
+    public float speed = 1;
 
     
     void Start()
@@ -19,7 +19,7 @@ public class Patron : MonoBehaviour
 
         foreach( GameObject building in buildings) {
             Building b = building.gameObject.GetComponent<Building>();
-            destinations.Add(b.queueStart.gameObject);
+            destinations.Add(b.QueuePoint.gameObject);
         }
 
         /* Add Spawn as final destination */

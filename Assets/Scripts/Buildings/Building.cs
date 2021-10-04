@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public TextMesh textName;
-    public TextMesh textHealth;
-    public TextMesh textRiders;
-    public TextMesh textQueue;
     public int startingHealth;
-    private int currentHealth;
+    protected int currentHealth;
     private List<Patron> queue = new List<Patron>();
     private List<Patron> riders = new List<Patron>();
-    public int rideLength; // Seconds
+    public int rideLength = 5; // Seconds
     public int maxRiders = 1; //
-    [HideInInspector]
-    public Transform queueStart;
     private float queueDistance = 1f;
     public int incomePerRide = 5;
     
     public int degradeAmount = 1; // Health
     private float degradeDelay = 1f; // Seconds
 
-    void Awake() {
-        queueStart = transform.Find("Queue");
-        //repair = transform.Find("Queue");
-    }
+
+[SerializeField]
+    private Transform _queueStart;
+
+    [SerializeField]
+    private Transform _exit;
+
+    [SerializeField]
+    private Transform _repairSpot;
+
+    [SerializeField]
+    private Transform[] intermediatePositions;
+    
+    public Transform QueuePoint { get { return _queueStart; } }
+
+    public Transform ExitPoint { get { return _exit; } }
+
+    public Transform RepairPoint { get { return _repairSpot; } }
+
 
     void OnMouseDown() {
         Debug.Log(gameObject.name + " clicked");
@@ -52,23 +61,12 @@ public class Building : MonoBehaviour
 
     }
     
-    void Start()
+    protected void Start()
     {
         currentHealth = startingHealth;
-        //textName.text = gameObject.name;
-
-        
         StartCoroutine(DegradeLoop());
         StartCoroutine(RideLoop());
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //textHealth.text = "Health: " + currentHealth.ToString() + " / " + startingHealth.ToString();
-        //textRiders.text = "Riders: " + riders.Count + " / " + maxRiders.ToString();
-        //textQueue.text = "Queue: " + queue.Count.ToString();
     }
 
     IEnumerator DegradeLoop() {
