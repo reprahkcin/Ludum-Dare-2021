@@ -117,7 +117,7 @@ public class Building : MonoBehaviour
 
         queue.Add( patron );
         float move = -queueDistance * queue.Count;
-        patron.transform.Translate(new Vector3(0, 0, -move ));
+        //patron.transform.Translate(new Vector3(0, 0, -move ));
     }
 
     IEnumerator LoadRiders() {
@@ -141,7 +141,7 @@ public class Building : MonoBehaviour
             
             yield return new WaitForSeconds(0.1f);
             
-            shiftQueue();
+            //shiftQueue();
 
             openSeat += 1;
         }
