@@ -72,7 +72,7 @@ public class GUIManager : MonoSingleton<GUIManager>
             }
             x += 1;
         }
-        GUI.EndGroup();
+        //GUI.EndGroup();
     }
 
     void ActiveWorkerUI() {
@@ -95,8 +95,8 @@ public class GUIManager : MonoSingleton<GUIManager>
             } else {
                 actionLabel = "idle.";
             }
-            GUI.BeginGroup(new Rect(Screen.width - 200, Screen.height - 200, 200, 200));
-            GUI.Box(new Rect(0, 0, 200, 200), _activeWorker.name + " Actions");
+            GUI.BeginGroup(new Rect(Screen.width - 310, Screen.height - 210, 300, 200));
+            GUI.Box(new Rect(0, 0, 300, 200), _activeWorker.name + " Actions");
             GUI.Label(new Rect(10, 30, 200, 200), _activeWorker.name + " is " + actionLabel);
             GUI.Label(new Rect(10, 60, 200, 200), "Speed: " + workerScript.speed);
             GUI.Label(new Rect(10, 90, 200, 200), "Repair: " + workerScript.repairPerSecond);
