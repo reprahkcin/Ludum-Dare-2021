@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2266913700456813766}
   - component: {fileID: 2266913700456813767}
   - component: {fileID: 1524325604743541184}
+  - component: {fileID: 8490971760588129405}
   m_Layer: 0
   m_Name: Kid
   m_TagString: Untagged
@@ -66,6 +67,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   animator: {fileID: 2266913700456813767}
+--- !u!136 &8490971760588129405
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266913700456813764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18923855
+  m_Height: 1.1324016
+  m_Direction: 1
+  m_Center: {x: -0.006588936, y: 0.72717553, z: 0}
 --- !u!1001 &2266913699908925058
 PrefabInstance:
   m_ObjectHideFlags: 0

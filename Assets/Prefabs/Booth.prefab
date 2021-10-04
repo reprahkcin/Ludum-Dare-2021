@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2899972959099728734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.73, y: 0.42, z: -1.36}
+  m_LocalPosition: {x: 1.73, y: 0.02, z: -1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 583040788227891338}
@@ -54,14 +54,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3530027620190921712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.42, z: -1.36}
+  m_LocalPosition: {x: 0, y: 0.04, z: -1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 583040788227891338}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4474721452260250504
-MeshCollider:
+--- !u!65 &4252266886159553268
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -70,10 +70,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 11cc97eda27be684da3745cc5951bb73, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 2.0000005, z: 2.0000005}
+  m_Center: {x: -0.000002861023, y: 7.1054274e-15, z: 1.0000002}
 --- !u!1 &5593911796070127197
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5593911796070127197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.32, y: 0.42, z: 0.39}
+  m_LocalPosition: {x: -2.32, y: -0.1, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 583040788227891338}
@@ -156,12 +155,13 @@ MonoBehaviour:
   rideLength: 5
   maxRiders: 1
   incomePerRide: 5
+  readyToBegin: 0
   degradeAmount: 1
+  repairSign: {fileID: 5508518270048521552}
   _queueStart: {fileID: 2060788425076843299}
   _exit: {fileID: 8218862102981353168}
   _repairSpot: {fileID: 5468538872336642746}
   intermediatePositions: []
-  repairSign: {fileID: 5508518270048521552}
 --- !u!1001 &3142048363276219396
 PrefabInstance:
   m_ObjectHideFlags: 0
