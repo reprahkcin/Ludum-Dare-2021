@@ -314,13 +314,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd70c22dc67b5834a95eaad32a13ba22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 100
+  rideLength: 5
+  maxRiders: 1
+  incomePerRide: 5
+  readyToBegin: 0
+  degradeAmount: 1
+  repairSign: {fileID: 3126713472674202393}
   _queueStart: {fileID: 1108797071303592265}
   _exit: {fileID: 7321140190571195844}
   _repairSpot: {fileID: 1135568753652452249}
   intermediatePositions: []
-  repairSign: {fileID: 3126713472674202393}
-  underRepair: 0
-  health: 100
+  cars: []
+  wheel: {fileID: 0}
+  speed: 30
 --- !u!1 &4913275817793982214
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9006380453618232106}
-  m_RootOrder: 10
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8673484904640490348
 GameObject:
@@ -601,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2512243300098982147, guid: 63319e44d75ccd347bf4c000c744e641, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2512243300098982147, guid: 63319e44d75ccd347bf4c000c744e641, type: 3}
       propertyPath: m_LocalRotation.z

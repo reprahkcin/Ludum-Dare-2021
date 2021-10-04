@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1614927614294194194}
   m_Layer: 0
   m_Name: DropTower
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e30f8c8532fd646b83c5f61a43b971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 0
-  rideLength: 5
+  startingHealth: 100
+  rideLength: 10
   maxRiders: 1
   incomePerRide: 5
   readyToBegin: 0

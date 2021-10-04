@@ -18328,6 +18328,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3276286639841069964, guid: 29f203ffbcbb66748af4f363b87f07cb, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276286639841069964, guid: 29f203ffbcbb66748af4f363b87f07cb, type: 3}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3389044918043006051, guid: 29f203ffbcbb66748af4f363b87f07cb, type: 3}
       propertyPath: m_Name
       value: Ferris Wheel
