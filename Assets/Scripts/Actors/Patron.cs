@@ -35,11 +35,11 @@ public class Patron : MonoBehaviour
     void Update()
     {
         if(!target) {
-            //animator.SetTrigger(false);
+            animator.SetBool("isMoving", false);
             return;
         }
 
-        animator.SetTrigger("isMoving");
+        animator.SetBool("isMoving", true);
 
         float step =  speed * Time.deltaTime; // calculate distance to move
         transform.LookAt(target.position);
