@@ -130,6 +130,8 @@ public class AudioManager : MonoBehaviour
             sound.source.loop = sound.loop;
         }
 
+        PlayIntroMusic();
+
     }
 
     // Play a random clip from the sounds array
@@ -212,6 +214,7 @@ public class AudioManager : MonoBehaviour
     {
         //StopMusic();
         // Play index 1 of the music array
+        music[0].source.Stop();
         music[1].source.Play();
     }
 
