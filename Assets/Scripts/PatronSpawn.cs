@@ -12,7 +12,8 @@ public class PatronSpawn : MonoBehaviour
 
     public int startAmount;
     private int amount;
-    
+
+    public Transform SpawnPoint;
 
     IEnumerator Start()
     {
@@ -24,10 +25,12 @@ public class PatronSpawn : MonoBehaviour
 
     private IEnumerator SpawnPatrons()
     {
-        
-        while(true) {
 
-            for(int i = 0; i < amount; i += 1) {
+        while (true)
+        {
+
+            for (int i = 0; i < amount; i += 1)
+            {
                 SpawnPatron();
                 yield return new WaitForSeconds(delayBetweenPatrons);
             }
@@ -36,7 +39,8 @@ public class PatronSpawn : MonoBehaviour
         }
     }
 
-    public void SpawnPatron() {
-        Instantiate(patron, transform.position, Quaternion.identity);
+    public void SpawnPatron()
+    {
+        Instantiate(patron, SpawnPoint.position, Quaternion.identity);
     }
 }

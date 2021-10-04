@@ -314,7 +314,7 @@ MonoBehaviour:
   - {fileID: 9186437566288782983}
   - {fileID: 1163457077175442022}
   - {fileID: 3830666473993333622}
-  isActive: 0
+  isActive: 1
   speed: 50
   spinMin: -200
   spinMax: 200

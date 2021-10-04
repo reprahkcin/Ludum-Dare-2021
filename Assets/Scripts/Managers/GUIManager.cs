@@ -27,9 +27,19 @@ public class GUIManager : MonoSingleton<GUIManager>
     }
     void OnGUI() {
 
-        IncomeUI();
-        PointsUI();
-        WorkerUI();
+            float max = 9 * StateManager.instance.GetAttendees();
+            
+            float  percent = 100;
+            
+            if(max > 0 ) {
+                percent = 100 / max * (float)StateManager.instance.GetPoints();
+            }
+            CanvasManager.instance.UpdateParkSentiment(percent);
+            CanvasManager.instance.UpdateIncome((float)StateManager.instance.GetIncome());
+
+        //IncomeUI();
+        //PointsUI();
+        //WorkerUI();
         ActiveWorkerUI();
         AlertsUI();
     }

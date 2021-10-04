@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //Audio clips loaded in the inspector
-    public Sound[] sounds;
+
 
     public Sound[] waterSounds;
 
@@ -40,20 +40,14 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] toolSounds;
 
+    public Sound[] music;
+
 
 
     private void Start()
     {
 
-        // Create a sound clip for each sound in the sounds array
-        foreach (Sound sound in sounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
+
 
         foreach (Sound sound in waterSounds)
         {
@@ -126,6 +120,18 @@ public class AudioManager : MonoBehaviour
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }
+
+        foreach (Sound sound in music)
+        {
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
+        }
+
+        PlayIntroMusic();
+
     }
 
     // Play a random clip from the sounds array
@@ -185,16 +191,62 @@ public class AudioManager : MonoBehaviour
         footstepSounds[randomIndex].source.Play();
     }
 
-    public void PlaySound(string name)
+    public void StopMusic()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        foreach (Sound sound in music)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            if (sound.source != null)
+            {
+                StartCoroutine(FadeOut(sound.source, 1f));
+            }
+
         }
-        s.source.Play();
     }
+
+    public void PlayIntroMusic()
+    {
+        //StopMusic();
+        // Play index 0 of the music array
+        music[0].source.Play();
+    }
+
+    public void PlayGameMusic()
+    {
+        //StopMusic();
+        // Play index 1 of the music array
+        music[0].source.Stop();
+        music[1].source.Play();
+    }
+
+    public void PlayPanicMusic()
+    {
+        //StopMusic();
+        StartCoroutine(FadeUp(music[2].source, 1f));
+    }
+
+    public void PlayDeathMusic()
+    {
+        foreach (Sound sound in music)
+        {
+            sound.source.Stop();
+        }
+        music[3].source.Play();
+    }
+
+    public void PlayWinMusic()
+    {
+        //StopMusic();
+        StartCoroutine(FadeUp(music[4].source, 1f));
+    }
+
+    public void PlayLoseMusic()
+    {
+        //StopMusic();
+        StartCoroutine(FadeUp(music[5].source, 1f));
+    }
+
+
+
 
     IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
@@ -209,5 +261,20 @@ public class AudioManager : MonoBehaviour
 
         audioSource.Stop();
         audioSource.volume = startVolume;
+    }
+
+    IEnumerator FadeUp(AudioSource audioSource, float FadeTime)
+    {
+        audioSource.Play();
+        audioSource.volume = 0.0f;
+
+        while (audioSource.volume < 100)
+        {
+            audioSource.volume += Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+
     }
 }
