@@ -1126,6 +1126,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7561108880972337581}
+  - component: {fileID: 1973436372}
+  - component: {fileID: 1973436371}
   m_Layer: 0
   m_Name: Ferris Wheel Geo
   m_TagString: Untagged
@@ -1149,6 +1151,32 @@ Transform:
   m_Father: {fileID: 1023678993917652064}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1973436372
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180326445256280855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.001681, y: 12.179301, z: 4.2682858}
+  m_Center: {x: 0.5401192, y: -1.1409297, z: -1.6341429}
+--- !u!114 &1973436371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180326445256280855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4eeefe74884446f837147c62d39000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2004448157474959646}
 --- !u!1 &7197002539013397585
 GameObject:
   m_ObjectHideFlags: 0
