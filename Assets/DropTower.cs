@@ -20,6 +20,10 @@ public class DropTower : MonoBehaviour
 
     public bool underRepair = false;
 
+    public Animator animator;
+
+    public bool isActive = false;
+
     void Start()
     {
 
@@ -40,8 +44,14 @@ public class DropTower : MonoBehaviour
 
         if (isActive)
         {
-            // slowly bring the hub up to the top, then drop it
+            animator.SetBool("isActive", true);
 
+
+        }
+        else
+        {
+
+            animator.SetBool("isActive", false);
         }
 
 
@@ -67,13 +77,6 @@ public class DropTower : MonoBehaviour
     // Drop Tower Movement
 
 
-    public GameObject hub;
-
-    public float dropSpeed;
-
-    public float upSpeed;
-
-    public bool isActive = false;
 
 
 }

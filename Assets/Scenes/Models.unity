@@ -751,6 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424308074}
   - component: {fileID: 424308073}
+  - component: {fileID: 424308075}
   m_Layer: 0
   m_Name: DropTower
   m_TagString: Untagged
@@ -788,9 +789,7 @@ MonoBehaviour:
   - {fileID: 712515496}
   repairSign: {fileID: 1181054203}
   underRepair: 0
-  hub: {fileID: 712515494}
-  dropSpeed: 300
-  upSpeed: 10
+  animator: {fileID: 424308075}
   isActive: 0
 --- !u!4 &424308074
 Transform:
@@ -808,9 +807,29 @@ Transform:
   - {fileID: 1738094125}
   - {fileID: 1905858347}
   - {fileID: 1711675519}
+  - {fileID: 1075087190}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &424308075
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424308072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc232fab3e234624d94320f20d5e6bd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &446921619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,17 +1349,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000001285225
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
       propertyPath: m_Name
       value: dropTowerGeo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
---- !u!1 &712515494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
-  m_PrefabInstance: {fileID: 712515493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &712515495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ccdc74ceed468164791cb2b7d2f4a04b, type: 3}
@@ -2492,6 +2518,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1075087189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075087190}
+  - component: {fileID: 1075087191}
+  m_Layer: 0
+  m_Name: Bottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075087190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075087189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 424308074}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1075087191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075087189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.01292, y: 0.9527726, z: 4.867472}
+  m_Center: {x: -0.31597686, y: 0.023613691, z: -0.22316337}
 --- !u!1001 &1079959140
 PrefabInstance:
   m_ObjectHideFlags: 0
