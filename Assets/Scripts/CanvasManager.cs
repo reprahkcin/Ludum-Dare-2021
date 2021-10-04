@@ -23,12 +23,18 @@ public class CanvasManager : MonoBehaviour
     public GameObject introCanvas;
 
     // HUD
+    public GameObject hudCanvas;
 
     public TextMeshProUGUI parkSentimentText;
 
     public TextMeshProUGUI incomeText;
 
     public TextMeshProUGUI feedbackStatusText;
+
+    // Dialog Panel
+    public GameObject dialogGroup;
+
+
 
 
     // ------------------------------------------------------------
@@ -44,6 +50,15 @@ public class CanvasManager : MonoBehaviour
     // ------------------------------------------------------------
     // Canvas Control Functions
     // ------------------------------------------------------------
+    public void DeactivateCanvases()
+    {
+        // Deactivate all canvases
+        foreach (Canvas canvas in canvases)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+    }
+
     public void NextCanvas()
     {
         // Deactivate the current canvas
@@ -99,6 +114,20 @@ public class CanvasManager : MonoBehaviour
         // Activate the canvas at the current canvas index
         currentCanvas = canvases[currentCanvasIndex];
         currentCanvas.gameObject.SetActive(true);
+    }
+
+    public void StartMission()
+    {
+        DeactivateCanvases();
+        // activate Dialog group
+        dialogGroup.SetActive(true);
+    }
+
+    public void EndMission()
+    {
+        DeactivateCanvases();
+        //reactivate HUD
+        hudCanvas.SetActive(true);
     }
 
     public void WinGame()

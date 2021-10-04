@@ -746,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168, y: -0.0029602}
+  m_AnchoredPosition: {x: -168, y: -0.002960205}
   m_SizeDelta: {x: 793.293, y: 361.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220718890
@@ -778,8 +778,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278196759
+  m_fontColor: {r: 0.08941757, g: 0.103773594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -846,17 +846,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220718888}
   m_CullTransparentMesh: 1
---- !u!114 &247437134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 247437134, guid: 325970a33f468a94a82609ce13c4dc8b, type: 3}
-  m_PrefabInstance: {fileID: 3350947665971438161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53924210374ff434282d542ad5802c50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &293643925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411, y: -0.0000061989}
+  m_AnchoredPosition: {x: -411, y: 0}
   m_SizeDelta: {x: 319.862, y: 361.894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750408819
@@ -3045,7 +3034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411, y: -0.0000061989}
+  m_AnchoredPosition: {x: -411, y: 0}
   m_SizeDelta: {x: 319.862, y: 361.894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910486768
@@ -3967,10 +3956,13 @@ MonoBehaviour:
   - {fileID: 1450803385}
   - {fileID: 1063311398}
   - {fileID: 293643926}
+  - {fileID: 2072871302}
   introCanvas: {fileID: 1089347374}
+  hudCanvas: {fileID: 1450803384}
   parkSentimentText: {fileID: 121036917}
   incomeText: {fileID: 1935438171}
   feedbackStatusText: {fileID: 746652874}
+  dialogGroup: {fileID: 2072871297}
   currentCanvasIndex: 0
 --- !u!4 &1219994813
 Transform:
@@ -4509,7 +4501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411, y: -0.0000061989}
+  m_AnchoredPosition: {x: -411, y: 0}
   m_SizeDelta: {x: 319.862, y: 361.894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386073713
@@ -5230,11 +5222,11 @@ RectTransform:
   m_Father: {fileID: 2072871298}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.8499756, y: -164.90002}
-  m_SizeDelta: {x: -74.365, y: -556.12}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 223}
+  m_SizeDelta: {x: 1205.635, y: 402.2912}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1525205766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5248,7 +5240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5465,8 +5457,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6351,9 +6343,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 247437134}
-        m_TargetAssemblyTypeName: PortaPotty, Assembly-CSharp
-        m_MethodName: OpenDoor
+      - m_Target: {fileID: 2072871299}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: FirstMission
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6931,10 +6923,21 @@ MonoBehaviour:
   textFromYou: {fileID: 220718890}
   theirCard: {fileID: 2138921504}
   yourCard: {fileID: 1525205764}
+  cards:
+  - {fileID: 2138921504}
+  - {fileID: 1525205764}
   otherPeoplePortraits:
   - {fileID: 750408817}
   - {fileID: 1386073711}
   - {fileID: 910486766}
+  missionText:
+  - Need you to head on over to the toilets and make sure the sink station has paper
+    towels.
+  - Sure thing boss man...
+  - ...where are the toilets again, boss man?
+  - My gawd, boy! There's a sign right in front of you!
+  - I guess you're right, boss man.
+  - Head to the restrooms in the Northeast corner of the park
 --- !u!114 &2072871300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7371,7 +7374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2138921505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7390,11 +7393,11 @@ RectTransform:
   m_Father: {fileID: 2072871298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.8499756, y: -164.896}
-  m_SizeDelta: {x: -74.365, y: -556.121}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 222.99997}
+  m_SizeDelta: {x: 1205.635, y: 402.29}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2138921506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7408,7 +7411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
