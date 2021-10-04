@@ -65,6 +65,7 @@ public class Patron : MonoBehaviour
                 
                 if(spawn) {
                     StateManager.instance.AddPoints(satisfaction);
+                    StateManager.instance.AddAttendee(1);
                     Destroy(gameObject);
                 }
             }

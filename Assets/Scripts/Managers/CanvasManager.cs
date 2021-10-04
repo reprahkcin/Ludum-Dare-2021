@@ -184,7 +184,7 @@ public class CanvasManager : MonoBehaviour
 
     public void UpdateParkSentiment(float parkSentiment)
     {
-        parkSentimentText.text = Convert.ToString(parkSentiment) + "%";
+        parkSentimentText.text = Convert.ToString(Math.Round(parkSentiment, 2)) + "%";
     }
 
     public void UpdateIncome(float income)
