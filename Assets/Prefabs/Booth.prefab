@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 20
-  rideLength: 5
+  rideLength: 2
   maxRiders: 1
-  incomePerRide: 5
+  incomePerRide: 3
   readyToBegin: 0
   degradeAmount: 1
   repairSign: {fileID: 5508518270048521552}

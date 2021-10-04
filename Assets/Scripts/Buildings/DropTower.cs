@@ -9,6 +9,8 @@ public class DropTower : Building
 
     void Update()
     {
+        base.Update();
+
         if (readyToBegin)
         {
             animator.SetTrigger("isActive");
@@ -16,7 +18,6 @@ public class DropTower : Building
         else
         {
              animator.SetTrigger("isIdle");
-        //    animator.SetBool("isActive", false);
         }
     }
 

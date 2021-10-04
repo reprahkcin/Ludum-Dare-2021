@@ -52,12 +52,9 @@ public class Building : MonoBehaviour
         currentHealth += amt;
 
         if(currentHealth >= startingHealth)  { // todo, implement maxhealth
-        Debug.Log("DONE!!!");
             currentHealth = startingHealth;
             return false;
         }
-
-        Debug.Log("Not Yet!");
 
         return true;
 
@@ -123,9 +120,15 @@ public class Building : MonoBehaviour
         patron.transform.Translate(new Vector3(0, 0, -move ));
     }
 
-    IEnumerator LoadRiders() { 
+    IEnumerator LoadRiders() {
 
-        while(queue.Count > 0 && (riders.Count < intermediatePositions.Length)) {
+        int limit = intermediatePositions.Length;
+
+        if(limit == 0) {
+            limit = 1;
+        }
+
+        while(queue.Count > 0 && (riders.Count < limit)) {
 
             if(incomePerRide > 0) {
                 StateManager.instance.AddIncome(incomePerRide);
@@ -146,19 +149,18 @@ public class Building : MonoBehaviour
 
     void shiftRider( Patron patron, int openSeat ) {
         // todo - move to specific transforms.
-        Debug.Log("Shifting rider to seat " + openSeat);
-        patron.transform.SetParent(intermediatePositions[openSeat]);
-        patron.transform.position = intermediatePositions[openSeat].position; 
-        patron.transform.localPosition = Vector3.zero;
+        if(intermediatePositions.Length > 0 ) {
+            Debug.Log("Shifting rider to seat " + openSeat);
+            patron.transform.SetParent(intermediatePositions[openSeat]);
+            patron.transform.position = intermediatePositions[openSeat].position; 
+            patron.transform.localPosition = Vector3.zero;
+        }
     }
 
     void shiftQueue() {
-        //foreach(Patron patron in queue) {
-        //    Vector3 t = new Vector3();
-        //    t = patron.transform.position + new Vector3(0, 0, -queueDistance );
-            //patron.SetSubTarget(t);
-
-        //}
+        foreach(Patron patron in queue) {
+            patron.transform.Translate(new Vector3(0,0, queueDistance ));
+        }
     }
 
     void RemoveHealth(int amount) { 
