@@ -8,6 +8,7 @@ public class Patron : MonoBehaviour
     private List<GameObject> destinations = new List<GameObject>();
     private Transform target;
     public float speed = 1;
+    public Animator animator;
 
     
     void Start()
@@ -34,11 +35,16 @@ public class Patron : MonoBehaviour
     void Update()
     {
         if(!target) {
+            //animator.SetTrigger(false);
             return;
         }
-        float step =  speed * Time.deltaTime; // calculate distance to move
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
+        animator.SetTrigger("isMoving");
+
+        float step =  speed * Time.deltaTime; // calculate distance to move
+        transform.LookAt(target.position);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        
         // Check if the position of the cube and sphere are approximately equal.
         if (Vector3.Distance(transform.position, target.position) < 0.001f)
         {
