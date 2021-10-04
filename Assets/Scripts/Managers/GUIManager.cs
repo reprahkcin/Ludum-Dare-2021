@@ -9,7 +9,12 @@ public class GUIManager : MonoSingleton<GUIManager>
     public GameObject[] workers;
 
     public Transform actionTarget;
+    private int maxBuildings = 0;
 
+    void Start() {
+        GameObject[] buildingGameObjects = GameObject.FindGameObjectsWithTag("Building");
+        maxBuildings = buildingGameObjects.Length;
+    }
     public void SetActionTarget(Transform target) {
         if(_activeWorker) {
             actionTarget = target;
@@ -27,7 +32,7 @@ public class GUIManager : MonoSingleton<GUIManager>
     }
     void OnGUI() {
 
-            float max = 9 * StateManager.instance.GetAttendees();
+            float max = maxBuildings * StateManager.instance.GetAttendees();
             
             float  percent = 100;
             
@@ -39,7 +44,7 @@ public class GUIManager : MonoSingleton<GUIManager>
 
         //IncomeUI();
         //PointsUI();
-        //WorkerUI();
+        WorkerUI();
         ActiveWorkerUI();
         AlertsUI();
     }
@@ -57,11 +62,11 @@ public class GUIManager : MonoSingleton<GUIManager>
     }
 
     void WorkerUI() {
-        GUI.BeginGroup(new Rect(0, Screen.height - 80, 260, 80));
-        GUI.Box(new Rect(0, 0, 260, 80), "Select Worker");
-        int x = 0;
+        //GUI.BeginGroup(new Rect(0, Screen.height - 80, 260, 80));
+        //GUI.Box(new Rect(0, 0, 260, 80), "Select Worker");
+        int x = 1;
         foreach(GameObject worker in workers) {
-            if (GUI.Button(new Rect(10 + (x * 50), 30, 40, 40), x.ToString()) || Input.GetKeyDown(x.ToString()))
+            if (/*GUI.Button(new Rect(10 + (x * 50), 30, 40, 40), x.ToString()) ||*/ Input.GetKeyDown(x.ToString()))
             {
                 SetActiveWorker(worker);
             }
