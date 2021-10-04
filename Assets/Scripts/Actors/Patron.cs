@@ -7,6 +7,8 @@ public class Patron : MonoBehaviour
     private int satisfaction = 0;
     private List<GameObject> destinations = new List<GameObject>();
     private Transform target;
+    private Vector3 subtarget;
+    private bool hasSubTarget = false;
     public float speed = 1;
     public Animator animator;
 
@@ -28,12 +30,16 @@ public class Patron : MonoBehaviour
         destinations.Add(spawn[0]);
 
         target = destinations[0].transform;
-        //Debug.Log("Going to " + destinations[0].name);
     }
 
     // Update is called once per frame
     void Update()
     {
+        MoveToTarget();
+        //MoveToSubTarget();
+    }
+
+    void MoveToTarget() {
         if(!target) {
             animator.SetBool("isMoving", false);
             return;
@@ -62,7 +68,25 @@ public class Patron : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }
+    }
 
+    void MoveToSubTarget() {
+        if(!hasSubTarget) {
+            animator.SetBool("isMoving", false);
+            return;
+        }
+
+        animator.SetBool("isMoving", true);
+
+        float step =  speed * Time.deltaTime;
+        transform.LookAt(subtarget);
+        
+        transform.position = Vector3.MoveTowards(transform.position, subtarget, step);
+        
+        if (Vector3.Distance(transform.position, subtarget) < 0.001f)
+        {
+            hasSubTarget = false;
         }
     }
 
@@ -73,10 +97,14 @@ public class Patron : MonoBehaviour
     public void NextTarget() {
         destinations.RemoveAt(0);
         target = destinations[0].transform;
-        //Debug.Log("Going to " + destinations[0].name);
     }
 
-GameObject[] reshuffle(GameObject[] gos)
+    public void SetSubTarget(Vector3 _subtarget) {
+        subtarget = _subtarget;
+        hasSubTarget = true;
+    }
+
+    GameObject[] reshuffle(GameObject[] gos)
     {
         // Knuth shuffle algorithm
         for (int t = 0; t < gos.Length; t++ )

@@ -12,7 +12,6 @@ public class StateManager : MonoSingleton<StateManager>
   }
 
   public void AddPoints(int amount) {
-    Debug.Log("POints" + amount);
     _points += amount;
   }
 

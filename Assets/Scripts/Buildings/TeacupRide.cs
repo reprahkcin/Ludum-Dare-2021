@@ -16,7 +16,7 @@ public class TeacupRide : Building
     void Update() {
         base.Update();
 
-        if(riders.Count > 0) {
+        if(readyToBegin) {
             isActive = true;
         } else {
             isActive = false;
