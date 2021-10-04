@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FerrisWheel : MonoBehaviour
+public class DropTower : MonoBehaviour
 {
     [SerializeField]
     private Transform _queueStart;
@@ -20,7 +20,9 @@ public class FerrisWheel : MonoBehaviour
 
     public bool underRepair = false;
 
-    public float health = 100f;
+    public Animator animator;
+
+    public bool isActive = false;
 
     void Start()
     {
@@ -42,15 +44,14 @@ public class FerrisWheel : MonoBehaviour
 
         if (isActive)
         {
-            //Turn the wheel on the z-axis at speed
-            wheel.transform.Rotate(Vector3.forward, Time.deltaTime * speed);
+            animator.SetBool("isActive", true);
 
-            //loop through cars and rotate each car opposite the wheel
-            for (int i = 0; i < cars.Length; i++)
-            {
-                cars[i].transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
-            }
 
+        }
+        else
+        {
+
+            animator.SetBool("isActive", false);
         }
 
 
@@ -73,14 +74,9 @@ public class FerrisWheel : MonoBehaviour
 
     public Transform Repair { get { return _repairSpot; } }
 
-    // Ferris Wheel Movement
-    public GameObject[] cars;
+    // Drop Tower Movement
 
-    public GameObject wheel;
 
-    public float speed;
-
-    public bool isActive = false;
 
 
 }
