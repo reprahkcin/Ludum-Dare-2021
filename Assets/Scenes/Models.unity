@@ -4025,7 +4025,31 @@ MonoBehaviour:
   sinkSounds: []
   toiletSounds: []
   doorSounds: []
-  bathroomSounds: []
+  bathroomSounds:
+  - name: 
+    clip: {fileID: 8300000, guid: ac6ead63f0365634fb3f04c69c71dfcc, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: e0ba009a0b7eadf4d80a15b1871f02d9, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 320ed154e2e0d484ba7f6edcf5bd6ce6, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 320ed154e2e0d484ba7f6edcf5bd6ce6, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
   kitchenSounds: []
   footstepSounds: []
   toolSounds: []
@@ -6968,7 +6992,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
