@@ -15,7 +15,6 @@ public class FerrisWheel : Building
 
     void Update()
     {
-
         if (readyToBegin)
         {
             //Turn the wheel on the z-axis at speed
@@ -26,13 +25,6 @@ public class FerrisWheel : Building
             {
                 cars[i].transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
             }
-
         }
-
-
-
     }
-
-
-
 }
