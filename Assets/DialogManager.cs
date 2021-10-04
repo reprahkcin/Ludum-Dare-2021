@@ -44,40 +44,91 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    public string[] missionText;
+    public string[] firstMissionText;
 
     public void FirstMission()
     {
-
         ClearCards();
         CanvasManager.instance.StartMission();
-        StartCoroutine(SpeechDelay(3.0f));
+        StartCoroutine(first_mission(3.0f));
         //
-
     }
 
-    IEnumerator SpeechDelay(float time)
+    IEnumerator first_mission(float time)
     {
-        SpeakToYou(0, missionText[0]);
+        SpeakToYou(0, firstMissionText[0]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        YouSpeak(missionText[1]);
+        YouSpeak(firstMissionText[1]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        YouSpeak(missionText[2]);
+        YouSpeak(firstMissionText[2]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        SpeakToYou(0, missionText[3]);
+        SpeakToYou(0, firstMissionText[3]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        YouSpeak(missionText[4]);
+        YouSpeak(firstMissionText[4]);
         yield return new WaitForSeconds(time);
         ClearCards();
-        CanvasManager.instance.PostFeedback(missionText[5]);
+        CanvasManager.instance.EndMission();
+        CanvasManager.instance.PostFeedback(firstMissionText[5]);
+    }
 
+    public string[] secondMissionText;
 
+    public void SecondMission()
+    {
+        ClearCards();
+        CanvasManager.instance.StartMission();
+        StartCoroutine(second_mission(3.0f));
+        //
+    }
 
+    IEnumerator second_mission(float time)
+    {
+        SpeakToYou(0, secondMissionText[0]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        YouSpeak(secondMissionText[1]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        SpeakToYou(0, secondMissionText[2]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        YouSpeak(secondMissionText[3]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        CanvasManager.instance.EndMission();
+        CanvasManager.instance.PostFeedback(secondMissionText[4]);
+    }
 
+    public string[] thirdMissionText;
+
+    public void ThirdMission()
+    {
+        ClearCards();
+        CanvasManager.instance.StartMission();
+        StartCoroutine(third_mission(3.0f));
+        //
+    }
+
+    IEnumerator third_mission(float time)
+    {
+        SpeakToYou(0, thirdMissionText[0]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        YouSpeak(thirdMissionText[1]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        SpeakToYou(0, thirdMissionText[2]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        YouSpeak(thirdMissionText[3]);
+        yield return new WaitForSeconds(time);
+        ClearCards();
+        CanvasManager.instance.EndMission();
+        CanvasManager.instance.PostFeedback(thirdMissionText[4]);
     }
 
 }
