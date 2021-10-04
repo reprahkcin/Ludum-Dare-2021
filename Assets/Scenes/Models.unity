@@ -3609,9 +3609,9 @@ MonoBehaviour:
   - {fileID: 1063311398}
   - {fileID: 293643926}
   introCanvas: {fileID: 1089347374}
-  parkSentimentText: {fileID: 0}
-  incomeText: {fileID: 0}
-  feedbackStatusText: {fileID: 0}
+  parkSentimentText: {fileID: 121036917}
+  incomeText: {fileID: 1935438171}
+  feedbackStatusText: {fileID: 746652874}
   currentCanvasIndex: 0
 --- !u!4 &1219994813
 Transform:
