@@ -1830,21 +1830,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5339454985762490625, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
-      propertyPath: startingHealth
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6276134778433795427, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4739641a67952404080e4561b129be38, type: 2}
     - target: {fileID: 6569722537158807205, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
       propertyPath: m_Name
       value: Booth
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569722537158807205, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
-      propertyPath: m_TagString
-      value: Building
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
@@ -2272,7 +2260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &874855316
 Transform:
   m_ObjectHideFlags: 0
@@ -5470,32 +5458,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4995942223614084593, guid: e4ecf2457b1cdc147929d7ecb220f5d4, type: 3}
   m_PrefabInstance: {fileID: 1637567832}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1675584147 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6569722537158807205, guid: 9cc46d7b46a718947b8b772139b5832d, type: 3}
-  m_PrefabInstance: {fileID: 784439612}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1675584148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675584147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e696472455ee4448080f671b102ebd31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 20
-  rideLength: 1
-  maxRiders: 1
-  incomePerRide: 5
-  degradeAmount: 1
-  _queueStart: {fileID: 0}
-  _exit: {fileID: 0}
-  _repairSpot: {fileID: 0}
-  intermediatePositions: []
 --- !u!1001 &1709035231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7437,6 +7399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tea Cup Ride
       objectReference: {fileID: 0}
+    - target: {fileID: 3684276655500927304, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 5124621630636906641, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -7480,6 +7446,18 @@ PrefabInstance:
     - target: {fileID: 5124621630636906641, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966909669265137846, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
+      propertyPath: maxRiders
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966909669265137846, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
+      propertyPath: rideLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966909669265137846, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}
+      propertyPath: startingHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6f2e7963fc131489dafb658858c491, type: 3}

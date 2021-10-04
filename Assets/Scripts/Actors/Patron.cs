@@ -28,7 +28,7 @@ public class Patron : MonoBehaviour
         destinations.Add(spawn[0]);
 
         target = destinations[0].transform;
-        Debug.Log("Going to " + destinations[0].name);
+        //Debug.Log("Going to " + destinations[0].name);
     }
 
     // Update is called once per frame

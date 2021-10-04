@@ -7,7 +7,7 @@ public class Building : MonoBehaviour
     public int startingHealth;
     protected int currentHealth;
     private List<Patron> queue = new List<Patron>();
-    private List<Patron> riders = new List<Patron>();
+    protected List<Patron> riders = new List<Patron>();
     public int rideLength = 5; // Seconds
     public int maxRiders = 1; //
     private float queueDistance = 1f;
@@ -16,6 +16,7 @@ public class Building : MonoBehaviour
     public int degradeAmount = 1; // Health
     private float degradeDelay = 1f; // Seconds
 
+    public GameObject repairSign;
 
 [SerializeField]
     private Transform _queueStart;
@@ -63,10 +64,25 @@ public class Building : MonoBehaviour
     
     protected void Start()
     {
+        
         currentHealth = startingHealth;
+        repairSign.SetActive(false);
         StartCoroutine(DegradeLoop());
         StartCoroutine(RideLoop());
         
+    }
+
+    protected void Update()
+    {
+        if (currentHealth == 0)
+        {
+            //Turn on the sign
+            repairSign.SetActive(true);
+        }
+        else
+        {
+            repairSign.SetActive(false);
+        }
     }
 
     IEnumerator DegradeLoop() {
@@ -83,7 +99,7 @@ public class Building : MonoBehaviour
 
             if(currentHealth == 0) {
                 EmptyQueue();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.1f);
             } else {
                 LoadRiders();
                 yield return new WaitForSeconds(rideLength);
@@ -98,10 +114,12 @@ public class Building : MonoBehaviour
 
         queue.Add( patron );
         float move = -queueDistance * queue.Count;
-        patron.transform.Translate(new Vector3(0,0, move ));
+        patron.transform.Translate(new Vector3(0, 0, -move ));
     }
 
     void LoadRiders() { 
+
+        int x = 0;
 
         while(riders.Count < maxRiders) {
 
@@ -118,8 +136,14 @@ public class Building : MonoBehaviour
             queue.RemoveAt(0);
             riders.Add(patron);
 
-            shiftRiders();
+            patron.transform.SetParent(intermediatePositions[x]);
+            patron.transform.position = intermediatePositions[x].position; 
+            patron.transform.localPosition = Vector3.zero;
+            
+            //shiftRiders();
             shiftQueue();
+
+            x += 1;
         }
     }
 
@@ -133,7 +157,7 @@ public class Building : MonoBehaviour
 
     void shiftQueue() {
         foreach(Patron patron in queue) {
-            patron.transform.Translate(new Vector3(0,0, queueDistance ));
+            patron.transform.Translate(new Vector3(0, 0, -queueDistance ));
 
         }
     }
@@ -152,6 +176,8 @@ public class Building : MonoBehaviour
         while(riders.Count > 0) {
             Patron patron = riders[0];
             riders.RemoveAt(0);
+            patron.transform.parent = null;
+            patron.transform.position = ExitPoint.position;
             patron.AwardPoints(RideQuality()); // Award points for ride.
             patron.NextTarget(); 
         }
