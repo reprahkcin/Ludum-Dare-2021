@@ -48,7 +48,6 @@ public class Patron : MonoBehaviour
         // Check if the position of the cube and sphere are approximately equal.
         if (Vector3.Distance(transform.position, target.position) < 0.001f)
         {
-
             Building building = target.gameObject.GetComponentInParent<Building>();
             
             if(building) {
@@ -57,6 +56,14 @@ public class Patron : MonoBehaviour
                 target = null;
                 // stop walking
                 //
+            } else {
+
+                PatronSpawn spawn = target.gameObject.GetComponent<PatronSpawn>();
+                
+                if(spawn) {
+                    StateManager.instance.AddPoints(satisfaction);
+                    Destroy(gameObject);
+                }
             }
 
         }
@@ -69,7 +76,7 @@ public class Patron : MonoBehaviour
     public void NextTarget() {
         destinations.RemoveAt(0);
         target = destinations[0].transform;
-        Debug.Log("Going to " + destinations[0].name);
+        //Debug.Log("Going to " + destinations[0].name);
     }
 
 GameObject[] reshuffle(GameObject[] gos)
