@@ -7,7 +7,7 @@ public class DropTower : Building
 
     public Animator animator;
 
-    void Update()
+    new void Update()
     {
         base.Update();
 
@@ -17,7 +17,7 @@ public class DropTower : Building
         }
         else
         {
-             animator.SetTrigger("isIdle");
+            animator.SetTrigger("isIdle");
         }
     }
 

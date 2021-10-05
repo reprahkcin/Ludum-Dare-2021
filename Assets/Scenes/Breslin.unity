@@ -4099,10 +4099,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "We were able to complete the basic behavior of patrons and some \"repair\"
-    functionality for a carny. \n\nTo play what we have so far, you should start
-    the game and if you click the \"1\" button, you will select your carny. By right-clicking
-    on a damaged structure, your carny will run over and repair it. \n\nYou can click
-    on the missions to see the beginnings of our challenge system. "
+    functionality for 5 carnies. \n\nTo play what we have so far, you should start
+    the game and if you click any of the numbered buttons, you will select a carny.
+    By right-clicking on a damaged structure, your carny will run over and repair
+    it. \nDamaged buildings and rides have cones in front of them, and the people
+    will move on. Overall park sentiment and income are tracked in the bottom-left
+    corner.\n\nYou can click on the missions to see the beginnings of our challenge
+    system, but we were not able to put the challenges together in time."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4129,8 +4132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26.5
+  m_fontSizeBase: 26.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9659,7 +9662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1089347375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10911,66 +10914,183 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c56445d3bc3a4479a3ce6815c6264f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterSounds:
+  crowdHappy:
+    name: 
+    clip: {fileID: 8300000, guid: cf4053bef447d9d43be0f84100a91f94, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  crowdUnhappy:
+    name: 
+    clip: {fileID: 8300000, guid: d1bc2f2d5636b4140963692ba1a0750d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  happyComments:
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 087750e3bf0ed1a488f193e71559be74, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 4cb5c9fa8f77ed64c81129a11857cf7f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: fec8853135d26194b95235316d7fbb3f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: a54272c4ecc11a340be68e39cde771a9, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  sinkSounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c6b315e8d4e2fee4d8b32a385a39a716, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 823e4900bd49ad84e99e5f45570cd988, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 39111a8ac32b6f3469480f8a0f3726db, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: d414623d3d37b764988c2286171e8f95, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  unhappyComments:
+  - name: 
+    clip: {fileID: 8300000, guid: f334fc856f87e6f499e3a41d1b33165d, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: aeb521ca9cc6b2f43ab2e3b2877340e3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 3097df6e7665b9544a6fcfc4b69e575a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 4f9cb9dc035d16f4cac037c94a948243, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 45faaef5f5aae4c44a7cc62a346d7cec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 46b6b74e20ce8234c8bbb16b4b4086b8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: f42ff1de469d77f40b6bfde93512c34d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 08a5c75b567bd1240b371aef03c16a7e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 30dda019ce1b4c348996f0b7499f31fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  genericStatements:
+  - name: 
+    clip: {fileID: 8300000, guid: 2e6c6561c67cc3a4b9bda921340cc9e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 4854832dd7bc1ec4f95bea3e20979be5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 1d0c5fa5544ffb948b44d68e14d2160c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 459d86b9067cdb546ae8f584f8a49964, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 29ef53a3c73c0e24f8ff5827ae287a8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: df03b761f635b934a92784dd2eed1327, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: ccce693c09bc9cd4887f9bddd1a33e3f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: b51d4bf9d98e0ff4586d8b444f39327d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: eba989cc3f8e2ce4bb8b51dc33c35752, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 0e1f86f8361a33740a9dae2439ec951b, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   toiletSounds:
@@ -10992,69 +11112,28 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  doorSounds: []
-  bathroomSounds:
-  - name: 
-    clip: {fileID: 8300000, guid: ac6ead63f0365634fb3f04c69c71dfcc, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: e0ba009a0b7eadf4d80a15b1871f02d9, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: 320ed154e2e0d484ba7f6edcf5bd6ce6, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: 320ed154e2e0d484ba7f6edcf5bd6ce6, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  kitchenSounds: []
-  footstepSounds: []
-  toolSounds: []
   music:
   - name: 
-    clip: {fileID: 8300000, guid: 6908178a999651448b69b5b9366d10c1, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 977249df62e94e34ab385b036a1a30a5, type: 3}
+    volume: 0.754
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 8300000, guid: 1801ebec657f6d642b5f400fd60d2232, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: d272b5249346c6e47924938189e8ebf0, type: 3}
+    volume: 0.777
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 8300000, guid: 1801ebec657f6d642b5f400fd60d2232, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 1472a44f8e0f4df479add88035fd75fa, type: 3}
+    volume: 0.777
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
-    clip: {fileID: 8300000, guid: 045c7151e30955446af377b9bb9b9ca8, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: 6908178a999651448b69b5b9366d10c1, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: 1801ebec657f6d642b5f400fd60d2232, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 9a05fff0d1b31e24d84ccd48aea0a579, type: 3}
+    volume: 0.777
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -18809,7 +18888,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1234363415}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayToiletSound
+        m_MethodName: PlayHappySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1234363415}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: StartComments
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

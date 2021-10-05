@@ -13,7 +13,7 @@ public class FerrisWheel : Building
     public float speed;
 
 
-    void Update()
+    new void Update()
     {
         if (readyToBegin)
         {

@@ -23,22 +23,17 @@ public class AudioManager : MonoBehaviour
 
     //Audio clips loaded in the inspector
 
+    public Sound crowdHappy;
 
-    public Sound[] waterSounds;
+    public Sound crowdUnhappy;
 
-    public Sound[] sinkSounds;
+    public Sound[] happyComments;
+
+    public Sound[] unhappyComments;
+
+    public Sound[] genericStatements;
 
     public Sound[] toiletSounds;
-
-    public Sound[] doorSounds;
-
-    public Sound[] bathroomSounds;
-
-    public Sound[] kitchenSounds;
-
-    public Sound[] footstepSounds;
-
-    public Sound[] toolSounds;
 
     public Sound[] music;
 
@@ -46,10 +41,19 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        crowdHappy.source = gameObject.AddComponent<AudioSource>();
+        crowdHappy.source.clip = crowdHappy.clip;
+        crowdHappy.source.volume = crowdHappy.volume;
+        crowdHappy.source.pitch = crowdHappy.pitch;
+        crowdHappy.source.loop = crowdHappy.loop;
 
+        crowdUnhappy.source = gameObject.AddComponent<AudioSource>();
+        crowdUnhappy.source.clip = crowdUnhappy.clip;
+        crowdUnhappy.source.volume = crowdUnhappy.volume;
+        crowdUnhappy.source.pitch = crowdUnhappy.pitch;
+        crowdUnhappy.source.loop = crowdUnhappy.loop;
 
-
-        foreach (Sound sound in waterSounds)
+        foreach (Sound sound in happyComments)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
@@ -58,7 +62,7 @@ public class AudioManager : MonoBehaviour
             sound.source.loop = sound.loop;
         }
 
-        foreach (Sound sound in sinkSounds)
+        foreach (Sound sound in unhappyComments)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
@@ -66,53 +70,19 @@ public class AudioManager : MonoBehaviour
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }
+
+        foreach (Sound sound in genericStatements)
+        {
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
+        }
+
+
 
         foreach (Sound sound in toiletSounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
-
-        foreach (Sound sound in doorSounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
-
-        foreach (Sound sound in bathroomSounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
-
-        foreach (Sound sound in kitchenSounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
-
-        foreach (Sound sound in footstepSounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-        }
-
-        foreach (Sound sound in toolSounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
@@ -131,24 +101,43 @@ public class AudioManager : MonoBehaviour
         }
 
         PlayIntroMusic();
+        //StartCoroutine(RandomlyPlayComments());
 
     }
 
-    // Play a random clip from the sounds array
-    public void PlayWaterSound()
+
+    public void PlayHappySound()
     {
-        // Pick a random number between 0 and the length of the waterSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, waterSounds.Length);
-        // Play the clip at the random index of the array.
-        waterSounds[randomIndex].source.Play();
+        crowdHappy.source.Play();
     }
 
-    public void PlaySinkSound()
+    public void PlayUnhappySound()
     {
-        // Pick a random number between 0 and the length of the sinkSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, sinkSounds.Length);
+        crowdUnhappy.source.Play();
+    }
+
+    public void PlayHappyComment()
+    {
+        // Pick a random number between 0 and the length of the happyComments array.
+        int randomIndex = UnityEngine.Random.Range(0, happyComments.Length);
         // Play the clip at the random index of the array.
-        sinkSounds[randomIndex].source.Play();
+        happyComments[randomIndex].source.Play();
+    }
+
+    public void PlayUnhappyComment()
+    {
+        // Pick a random number between 0 and the length of the unhappyComments array.
+        int randomIndex = UnityEngine.Random.Range(0, unhappyComments.Length);
+        // Play the clip at the random index of the array.
+        unhappyComments[randomIndex].source.Play();
+    }
+
+    public void PlayGenericStatement()
+    {
+        // Pick a random number between 0 and the length of the GenericStatements array.
+        int randomIndex = UnityEngine.Random.Range(0, genericStatements.Length);
+        // Play the clip at the random index of the array.
+        genericStatements[randomIndex].source.Play();
     }
 
     public void PlayToiletSound()
@@ -159,37 +148,6 @@ public class AudioManager : MonoBehaviour
         toiletSounds[randomIndex].source.Play();
     }
 
-    public void PlayDoorSound()
-    {
-        // Pick a random number between 0 and the length of the doorSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, doorSounds.Length);
-        // Play the clip at the random index of the array.
-        doorSounds[randomIndex].source.Play();
-    }
-
-    public void PlayBathroomSound()
-    {
-        // Pick a random number between 0 and the length of the bathroomSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, bathroomSounds.Length);
-        // Play the clip at the random index of the array.
-        bathroomSounds[randomIndex].source.Play();
-    }
-
-    public void PlayKitchenSound()
-    {
-        // Pick a random number between 0 and the length of the kitchenSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, kitchenSounds.Length);
-        // Play the clip at the random index of the array.
-        kitchenSounds[randomIndex].source.Play();
-    }
-
-    public void PlayFootstepSound()
-    {
-        // Pick a random number between 0 and the length of the footstepSounds array.
-        int randomIndex = UnityEngine.Random.Range(0, footstepSounds.Length);
-        // Play the clip at the random index of the array.
-        footstepSounds[randomIndex].source.Play();
-    }
 
     public void StopMusic()
     {
@@ -276,5 +234,36 @@ public class AudioManager : MonoBehaviour
         }
 
 
+    }
+    public void StartComments()
+    {
+        StartCoroutine(RandomlyPlayComments());
+    }
+    IEnumerator RandomlyPlayComments()
+    {
+        // Generate a random float between 1-5
+        float randomTime = UnityEngine.Random.Range(1f, 5f);
+        // Wait for that amount of time
+        Debug.Log(StateManager.instance.GetPoints());
+
+        float max = GUIManager.instance.maxBuildings * StateManager.instance.GetAttendees();
+        float percent = 100;
+
+        if (max > 0)
+        {
+            percent = 100 / max * (float)StateManager.instance.GetPoints();
+        }
+        if (percent > 50)
+        {
+            //Play happy comment
+            PlayHappyComment();
+        }
+        else
+        {
+            //Play unhappy comment
+            PlayUnhappyComment();
+        }
+        yield return new WaitForSeconds(randomTime);
+        StartCoroutine(RandomlyPlayComments());
     }
 }

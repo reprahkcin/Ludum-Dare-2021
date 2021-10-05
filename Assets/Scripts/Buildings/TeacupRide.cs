@@ -13,12 +13,16 @@ public class TeacupRide : Building
 
     public float spinMax = 20.0f;
 
-    void Update() {
+    new void Update()
+    {
         base.Update();
 
-        if(readyToBegin) {
+        if (readyToBegin)
+        {
             isActive = true;
-        } else {
+        }
+        else
+        {
             isActive = false;
         }
     }
